@@ -59,7 +59,7 @@ def parse_line(line: str):
         case ["LD", dst, addr]:
             return f"{op_code_map['LD']} {reg(dst)} {reg(addr)} {unused(18)}"
         case ["SD", src, addr]:
-            return f"{op_code_map['SD']} {reg(src)} {reg(addr)} {unused(18)}"
+            return f"{op_code_map['SD']}{unused(4)}{reg(addr)} {reg(src)} {unused(14)}"
         case ["LI", dst, im]:
             return f"{op_code_map['LI']} {reg(dst)} {unused(6)} {imm(im)}"
         case ["JUMP", addr]:
