@@ -26,8 +26,8 @@ class ControlUnit extends Module {
   io.memRead := false.B
   io.memWrite := false.B
   io.regWrite := false.B
-  io.aluOrMem := false.B // TODO: Implement
-  io.writeImmEnable := false.B // TODO: Implement
+  io.aluOrMem := false.B // TODO: implement test
+  io.writeImmEnable := false.B // TODO: Implement test
   io.jump := false.B // TODO: Implement
   io.jumpEq := false.B // TODO: Implement
 
@@ -37,6 +37,10 @@ class ControlUnit extends Module {
 
   io.memRead := opCode === "b010000".U // LD
   io.memWrite := opCode === "b010001".U // SD
+  io.writeImmEnable := opCode === "b011000".U// LI
+  io.jump := opCode === "b100000".U // jump
+  io.jumpEq := opCode === "b100001".U //jumpEq
+  io.aluOrMem := opCode(5,4) === "b00".U //use ALU result not memory result
 
   when (opCode(5,4) === "b00".U) {
     // All ALU operations write to a register

@@ -8,6 +8,10 @@ class ControlUnitTester(dut: ControlUnit) extends PeekPokeTester(dut) {
   val memRead = peek(dut.io.memRead) == 1
   val memWrite = peek(dut.io.memWrite) == 1
   val regWrite = peek(dut.io.regWrite) == 1
+  val aluOrMem = peek(dut.io.aluOrMem) == 1
+  val writeImmEnable = peek(dut.io.writeImmEnable) == 1
+  val jump = peek(dut.io.jump) == 1
+  val jumpEq = peek(dut.io.jumpEq) == 1
   expect(!immEnable, "Expected immEnable to be false, got " + immEnable)
   expect(memRead, "Expected memRead to be true, got " + memRead)
   expect(!memWrite, "Expected memWrite to be false, got " + memWrite)
