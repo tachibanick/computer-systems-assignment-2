@@ -11,8 +11,8 @@ op_code_map = {
     "LD": "010000",  # Load data
     "SD": "010001",  # Store data
     "LI": "011000",  # Load immediate
-    "JUMP": "101000",  # Jump
-    "JEQ": "101001",  # Jump if equal
+    "JUMP": "100000",  # Jump
+    "JEQ": "100001",  # Jump if equal
     "END": "110000",
 }
 

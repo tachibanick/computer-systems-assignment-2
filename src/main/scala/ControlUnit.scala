@@ -14,12 +14,22 @@ class ControlUnit extends Module {
     val memWrite = Output(Bool())
 
     val regWrite = Output(Bool())
+
+    val aluOrMem = Output(Bool())
+    val writeImmEnable = Output(Bool()) // Write imm to register or output of ALU or memory
+
+    val jump = Output(Bool())
+    val jumpEq = Output(Bool())
   })
 
   io.immEnable := false.B
   io.memRead := false.B
   io.memWrite := false.B
   io.regWrite := false.B
+  io.aluOrMem := false.B // TODO: Implement
+  io.writeImmEnable := false.B // TODO: Implement
+  io.jump := false.B // TODO: Implement
+  io.jumpEq := false.B // TODO: Implement
 
   val opCode = io.instr(31, 26) // Extract first 6 bits from instruction to get op code
 
