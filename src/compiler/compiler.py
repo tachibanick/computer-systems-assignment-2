@@ -11,8 +11,8 @@ op_code_map = {
     "LD": "010000",  # Load data
     "SD": "010001",  # Store data
     "LI": "011000",  # Load immediate
-    "JUMP": "100000",  # Jump
-    "JEQ": "100001",  # Jump if equal
+    "JUMP": "101000",  # Jump
+    "JEQ": "101001",  # Jump if equal
     "END": "110000",
 }
 
@@ -57,9 +57,9 @@ def parse_line(line: str):
         case ["SUBI", dst, src1, im]:
             return f"{op_code_map['SUBI']} {reg(dst)} {reg(src1)} {unused(2)} {imm(im)}"
         case ["LD", dst, addr]:
-            return f"{op_code_map['LD']} {reg(dst)} {reg(addr)} {unused(18)}"
+            return f"{op_code_map['LD']}{reg(dst)}{unused(4)} {reg(addr)} {unused(14)}"
         case ["SD", src, addr]:
-            return f"{op_code_map['SD']}{unused(4)}{reg(addr)} {reg(src)} {unused(14)}"
+            return f"{op_code_map['SD']}{unused(4)}{reg(src)} {reg(addr)} {unused(14)}"
         case ["LI", dst, im]:
             return f"{op_code_map['LI']} {reg(dst)} {unused(6)} {imm(im)}"
         case ["JUMP", addr]:
