@@ -3,10 +3,10 @@ import chisel3.util._
 
 class ALU extends Module {
   val io = IO(new Bundle {
-    val a = Input(UInt(16.W))
-    val b = Input(UInt(16.W))
+    val a = Input(UInt(32.W))
+    val b = Input(UInt(32.W))
     val op = Input(UInt(3.W))
-    val result = Output(UInt(16.W))
+    val result = Output(UInt(32.W))
     val zero = Output(Bool())
   })
 
