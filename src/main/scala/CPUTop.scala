@@ -32,6 +32,10 @@ class CPUTop extends Module {
   programMemory.io.address := programCounter.io.programCounter
 
   val instr = programMemory.io.instructionRead
+  controlUnit.io.instr := instr
+  io.done := instr(31,30) === "b11".U
+  programCounter.io.stop := io.done
+
 
   registerFile.io.writeSel := instr(25, 22)
   registerFile.io.aSel := instr(21, 18)
