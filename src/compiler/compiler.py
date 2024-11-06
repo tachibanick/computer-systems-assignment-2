@@ -98,7 +98,9 @@ def main():
 
     # Convert each binary string to 8 digit hex
     hex_lines = [hex(int(line, 2))[2:].zfill(8) for line in lines]
-    print("\n".join(hex_lines))
+    print("\"", end="")
+    print("\".U(32.W),\n\"".join(hex_lines))
+    print("\".U(32.W)")
 
 
 if __name__ == "__main__":
