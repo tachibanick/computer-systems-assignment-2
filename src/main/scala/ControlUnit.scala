@@ -26,10 +26,10 @@ class ControlUnit extends Module {
   io.memRead := false.B
   io.memWrite := false.B
   io.regWrite := false.B
-  io.aluOrMem := false.B // TODO: implement test
-  io.writeImmEnable := false.B // TODO: Implement test
-  io.jump := false.B // TODO: Implement
-  io.jumpEq := false.B // TODO: Implement
+  io.aluOrMem := false.B
+  io.writeImmEnable := false.B
+  io.jump := false.B
+  io.jumpEq := false.B
 
   val opCode = io.instr(31, 26) // Extract first 6 bits from instruction to get op code
 
